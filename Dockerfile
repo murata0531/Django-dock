@@ -1,14 +1,7 @@
-#pythonイメージを指定　バージョンは使いたいものに合わせる
-FROM python:3.8
-
-# コンテナ内にcodeディレクトリを作り、そこをワークディレクトリとする
+FROM python:3
+ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
-
-# ホストPCにあるrequirements.txtをコンテナ内のcodeディレクトリにコピーする
-# コピーしたrequirements.txtを使ってパッケージをインストールする
-ADD requirements.txt /code/
-RUN pip3 install -r requirements.txt
-
-# ホストPCの各種ファイルをcodeディレクトリにコピーする
-ADD . /code/
+COPY requirements.txt /code/
+RUN pip install --upgrade pip && pip install -r requirements.txt
+COPY . /code/
