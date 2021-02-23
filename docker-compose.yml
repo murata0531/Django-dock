@@ -1,7 +1,7 @@
-version: '3'       # 1
-services:          # 2
+version: '3'
+services:
   db:
-    image: mysql:8.0
+    image: mysql:5.7
 
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -14,7 +14,7 @@ services:          # 2
 
   web:
     build: .
-    command: python3 manage.py runserver 0.0.0.0:8000 # 7
+    command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
