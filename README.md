@@ -21,7 +21,7 @@ $ docker ps
 
 コンテナに入る
 
-docker exec -it コンテナ名 bash
+$ docker exec -it コンテナ名 bash
 
 
 mysqlのバージョンを確認
